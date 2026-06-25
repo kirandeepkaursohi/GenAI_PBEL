@@ -1,0 +1,81 @@
+#Practical 1: Student Performance Management System
+
+students_details = {}
+
+for i in range(5):
+    print(f"\nEnter details of Student {i + 1}")
+
+    roll_no = input("Enter Roll Number: ")
+    name = input("Enter Name: ")
+
+    marks = []
+    for j in range(5):
+        mark = float(input(f"Enter marks for subject {j + 1}: "))
+        marks.append(mark)
+
+    students_details[roll_no] = {"name": name, "marks": marks}
+
+
+def total_marks(marks):
+    return sum(marks)
+
+
+def percentage(total_marks, marks):
+    percentage = (total_marks / len(marks))
+    return percentage
+
+
+grade_criteria = ("A", "B", "C", "D", "F")
+
+
+def grade(percentage):
+    if percentage >= 90:
+        grade = "A"
+    elif percentage >= 75:
+        grade = "B"
+    elif percentage >= 60:
+        grade = "C"
+    elif percentage >= 40:
+        grade = "D"
+    else:
+        grade = "F"
+    return grade
+
+
+def display_student(roll, details):
+    name = details["name"]
+    marks = details["marks"]
+    total_marks = sum(marks)
+    percentage = (total_marks / len(marks))
+    final_grade = grade(percentage)
+
+    print("----------------------------")
+    print("Roll Number :", roll_no)
+    print("Name        :", name)
+    print("Marks       :", marks)
+    print("Total Marks :", total_marks)
+    print("Percentage  :", percentage)
+    print("Grade       :", grade)
+
+    return percentage
+
+
+print("Students Records")
+high_per = -1
+high_student = ""
+
+for roll_no, details in students_details.items():
+    percentage = display_student(roll_no, details)
+
+    if percentage > high_per:
+        high_per = percentage
+        high_student = details["name"]
+
+print("roll number: ", high_student)
+print("Percentage: ", high_per)
+
+
+
+
+
+
