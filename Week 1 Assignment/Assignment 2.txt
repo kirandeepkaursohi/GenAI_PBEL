@@ -1,0 +1,114 @@
+#Question 1:
+fh = open("filename.txt", 'wt')
+fh.write("Aa, 90\n")
+fh.write("Bb, 80\n")
+fh.write("Cc, 30\n")
+fh.write("Dd, 50\n")
+fh.write("Ee, 35\n")
+fh.write("Ff, 95\n")
+fh.write("Gg, 40\n")
+fh.write("Hh, 60\n")
+fh.close()
+
+fh = open("filename.txt", 'rt')
+
+passed = 0
+failed = 0
+print("Passed Students")
+for line in fh:
+    data = line.split()
+    name = data[0]
+    marks = int(data[1])
+
+    if (marks > 45):
+        passed = passed + 1
+        print(name)
+    else:
+        failed = failed + 1
+
+fh.close()
+fh= open("filename.txt", 'rt')
+print(" ")
+print("Failed Students")
+for line in fh:
+    data = line.split()
+    name = data[0]
+    marks = int(data[1])
+    if (marks <= 45):
+        print(name)
+
+fh.close()
+print("Answer to Question 1")
+print("Passed: ", passed)
+print("Failed: ", failed)
+
+fh.close()
+
+#-------------------------#
+#-------------------------#
+#-------------------------#
+
+#Question 2:
+fh1 = open("salary.txt", 'wt')
+fh1.write("Aaaa, 20000\n")
+fh1.write("Bbbb, 100000\n")
+fh1.write("Cccc, 90000\n")
+fh1.write("Dddd, 45000\n")
+fh1.write("Eeee, 55000\n")
+fh1.write("Ffff, 80000\n")
+fh1.close()
+
+fh1 = open("salary.txt", 'rt')
+
+more_salary = 0
+
+
+for line in fh1:
+    data = line.split()
+    name = data[0]
+    salary = int(data[1])
+
+    if (salary > 50000):
+        more_salary = more_salary + 1
+        print("Employee with Salary more than 45000: ", name, salary)
+
+
+print("----------------")
+print("Answer to Question 2")
+print("More salary: ", more_salary)
+
+
+#-------------------------#
+#-------------------------#
+#-------------------------#
+
+#Question 3:
+fh2 = open("attendance.txt", 'wt')
+fh2.write("Zz, A\n")
+fh2.write("Yy, A\n")
+fh2.write("Xx, P\n")
+fh2.write("Ww, P\n")
+fh2.write("Vv, A\n")
+fh2.write("Uu, P\n")
+fh2.close()
+
+fh2 = open("attendance.txt", 'rt')
+Absent = 0
+Present = 0
+
+for line in fh2:
+    data = line.split()
+    name = data[0]
+    status = data[1]
+
+    if (status == "A"):
+        Absent = Absent + 1
+        print("Absent: ", name)
+
+    else:
+        Present = Present + 1
+
+print("----------------")
+print("Answer to Question 3")
+print("Absent: ", Absent)
+print("Present: ", Present)
